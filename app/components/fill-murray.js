@@ -1,3 +1,10 @@
-import fillMurray from 'ember-cli-fill-murray/components/fill-murray';
+import Ember from 'ember';
 
-export default fillMurray;
+export default Ember.Component.extend({
+  height: 100,
+  width: 100,
+  src: Ember.computed('height', 'width', function(){
+    var base = 'http://www.fillmurray.com/';
+    return base + this.get('width') + '/' + this.get('height');
+  })
+});
